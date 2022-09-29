@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 /* typedef struct { */
 /*   char symbol; */
 /*   int prio; */
@@ -25,7 +24,7 @@ void print_stack(node** top);
 
 
 /* Deikstra algorithm functions */
-int alg(char* input, char* output);
+int rpn(char* input, char* output);
 int get_prio(char* value, int);
 int check_stack_prio(node* stack, int prio_stack);
 

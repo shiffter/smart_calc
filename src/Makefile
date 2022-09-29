@@ -12,19 +12,19 @@ endif
 
 vpath			%.c functions
 
-SRCS 		= 	$(wildcard functions/s21_*.c)
-OBJF		=	$(SRCS:%.c=objf/%.o)
-DEPENDS		=	$(OBJF:%.o=%.d)
+SRCS 				= 	$(wildcard functions/*.c)
+OBJF				=		$(SRCS:%.c=objf/%.o)
+DEPENDS			=		$(OBJF:%.o=%.d)
 
 #for tests
-SRCTEST		=	$(wildcard tests/*.c)
-OBJSTEST	=	$(SRCTEST:%.c=objf/%.o)
-DEPENDSTEST	=	$(OBJSTEST:%.o=%.d)
-OBJTESTDIR	=	 objf/functions objf/tests
+SRCTEST			=		$(wildcard tests/*.c)
+OBJSTEST		=		$(SRCTEST:%.c=objf/%.o)
+DEPENDSTEST	=		$(OBJSTEST:%.o=%.d)
+OBJTESTDIR	=		objf/functions objf/tests
 
-MYLIB		=	s21_matrix.a
-NAME		=	test
-REPORT_NAME =	report
+MYLIB				=		smart_calc.a
+NAME				=		test
+REPORT_NAME =		report
 
 
 
@@ -38,7 +38,7 @@ test: $(OBJSTEST) $(MYLIB)
 # -include $(DEPENDS) $(DEPENDSTEST)
 
 clean:
-	rm -rf ./objf/ *.o s21_matrix.a test ./finish 
+	rm -rf ./objf/ *.o $(MYLIB) test ./finish 
  
 $(MYLIB): $(OBJF)
 	ar rc $(MYLIB) $(OBJF)
