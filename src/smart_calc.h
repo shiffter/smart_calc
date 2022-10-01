@@ -14,6 +14,12 @@ typedef struct stack {
 } node;
 
 
+typedef struct string {
+  char* output;
+  int len;
+} struct_str;
+
+
 
 /* Stack functions */
 int push(node** top, char x);
@@ -24,7 +30,7 @@ void print_stack(node** top);
 
 
 /* Deikstra algorithm functions */
-int rpn(char* input, char* output);
+int rpn(char* input, struct_str* output);
 int get_prio(char* value, int);
 int check_stack_prio(node* stack, int prio_stack);
 

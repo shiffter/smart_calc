@@ -1,30 +1,58 @@
 #include "test.h"
 
-START_TEST(without_bracket) {
-  char* case1 = "a+b*c";
-  char* res_1 = "abc*+";
-  
+START_TEST(without_brackets) {
+  char *case1 = "a+b*c";
+  char *res_1 = "abc*+";
+  struct_str* out = calloc(1, sizeof(struct_str));
+  ck_assert_int_eq(0, rpn(case1, out));
+  ck_assert_str_eq(res_1, out->output);
+  free(out->output);
+  free(out);
+
+  char *case2 = "a+b+s*t+d/r*p^s*a-e-s*y^x";
+  char *res_2 = "ab+st*+dr/ps^*a*+e-syx^*-";
+  out = calloc(1, sizeof(struct_str));
+  ck_assert_int_eq(0, rpn(case2, out));
+  ck_assert_str_eq(res_2, out->output);
+  free(out->output);
+  free(out);
+
+  char *case3 = "+s-z*t/r*w";
+  char *res_3 = "s+zt*r/w*-";
+  out = calloc(1, sizeof(struct_str));
+  ck_assert_int_eq(0, rpn(case3, out));
+  ck_assert_str_eq(res_3, out->output);
+  free(out->output);
+  free(out);
 }
 END_TEST
 
-START_TEST(pop_out) {
+START_TEST(with_brackets) {
+
+  char* case1 = "(a+b*(s-d)^x)/(z-x)+w*x";
+  char* res_1 = "absd-x^*+zx-/wx*+";
+  struct_str* out = calloc(1, sizeof(struct_str));
+  ck_assert_int_eq(0, rpn(case1, out));
+  ck_assert_str_eq(res_1, out->output);
+  free(out->output);
+  free(out);
 
 }
 END_TEST
 
-Suite *push_in_test() {
+Suite *rpn_test() {
   Suite *s;
 
-  s = suite_create("Push and pop");
+  s = suite_create("Reverse polish notation tests");
 
-  TCase *tc1_push = tcase_create("Push a-z symbols in stack");
-  TCase *tc2_pop_out = tcase_create("Pop a-z symbols from stack");
+  TCase *tc1_without_brackets = tcase_create("Without brackets cases");
+  TCase *tc2_with_brackets = tcase_create("With brackets");
 
-  tcase_add_test(tc1_push, push_in);
-  tcase_add_test(tc2_pop_out, pop_out);
+  tcase_add_test(tc1_without_brackets, without_brackets);
+  tcase_add_test(tc2_with_brackets, with_brackets);
 
-  suite_add_tcase(s, tc1_push);
-  suite_add_tcase(s, tc2_pop_out);
+  suite_add_tcase(s, tc1_without_brackets);
+  suite_add_tcase(s, tc2_with_brackets);
 
   return s;
 }
