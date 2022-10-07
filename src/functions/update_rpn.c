@@ -4,7 +4,9 @@ int rpn(queue* que_in, queue* que_out){
   node_s* stack = NULL;
   node_q* que_node = NULL;
   while (que_node = pop_q(que_in)){
-    printf("%s \tprio=%d\n", que_node->data, que_node->prio);
+    /* printf("inpyt %s \tprio=%d\n", que_node->data, que_node->prio); */
+    /*        printf("stack begin\n"); */
+    /*        print_stack(stack); */
     if (que_node->prio == 0){
       push_q(que_out, que_node->data, 0);
       continue;
@@ -14,6 +16,8 @@ int rpn(queue* que_in, queue* que_out){
        case 1:
          if (*que_node->data == 40) push_s(&stack, que_node);
          else {
+           /* printf("\nstack begin\n"); */
+           /* print_stack(stack); */
           node_q* tmp_q = pop_s(&stack);
           while (*tmp_q->data != 40){
             push_q(que_out, tmp_q->data, tmp_q->prio);
@@ -22,21 +26,29 @@ int rpn(queue* que_in, queue* que_out){
           /* print_stack(stack); */
          } break;
       case 0:
-        if (is_empty_s(&stack) || (*stack->data->data == 40)) {
+        if (!is_empty_s(&stack) && *stack->data->data == 40) {
           push_s(&stack, que_node);
           continue;
         }
-        if (stack->data->prio < que_node->prio){
+        if (!is_empty_s(&stack) && stack->data->prio < que_node->prio ){
           while(!is_empty_s(&stack) && stack->data->prio < que_node->prio){
-            node_q* tmp_s = pop_s(&stack);
-            push_q(que_out, tmp_s->data, tmp_s->prio);
-            /* stack_prio = get_prio(&(stack->data), stack_prio); */
-            if (is_empty_s(&stack)){
-              push_s(&stack, que_node);
+            if (stack->data->prio == 1){
               break;
+            } else {
+              node_q* tmp_s = pop_s(&stack);
+              push_q(que_out, tmp_s->data, tmp_s->prio);
             }
-          }
-          /* push_s(&stack, que_node); */
+             
+            /* stack_prio = get_prio(&(stack->data), stack_prio); */
+/* if (stack->data->prio == 1) */
+            /*   continue; */
+            }
+            push_s(&stack, que_node);
+            continue;
+        }
+        if (is_empty_s(&stack)){
+            push_s(&stack, que_node);
+            continue;
         }
         if (stack->data->prio == que_node->prio){
           node_q* tmp_sy = pop_s(&stack);
@@ -44,7 +56,7 @@ int rpn(queue* que_in, queue* que_out){
           push_s(&stack, que_node);
           continue;
         }
-        if (stack->data->prio > que_node->prio || stack->data->prio == -1){
+        if (stack->data->prio > que_node->prio ){
           push_s(&stack, que_node);
           continue;
         }

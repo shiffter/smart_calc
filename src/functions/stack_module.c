@@ -42,7 +42,7 @@ void print_stack(node_s *top) {
   node_s *top_for_print = top;
   node_s *tmp = top_for_print;
   while (tmp) {
-    printf("%0.2lf\n", tmp->data->result);
+    printf("%s\n", tmp->data->data);
     tmp = tmp->next_node;
   }
 }
