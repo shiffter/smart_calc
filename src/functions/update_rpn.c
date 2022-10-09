@@ -30,8 +30,8 @@ int rpn(queue* que_in, queue* que_out){
           push_s(&stack, que_node);
           continue;
         }
-        if (!is_empty_s(&stack) && stack->data->prio < que_node->prio ){
-          while(!is_empty_s(&stack) && stack->data->prio < que_node->prio){
+        if (!is_empty_s(&stack) && stack->data->prio <= que_node->prio ){
+          while(!is_empty_s(&stack) && stack->data->prio <= que_node->prio){
             if (stack->data->prio == 1){
               break;
             } else {
@@ -104,11 +104,7 @@ int math_keys(char* start, func functions, char* out){
   if(*start == 115){
     if (!strncmp(start, functions.s, 3)){
       *out = 115;                                                   //115= s
-            /* stack_prio = get_prio(&(stack->data), stack_prio); */
-            /* if (stack->data->prio == 1 || is_empty_s(&stack)){ */
-            /*   push_s(&stack, que_node); */
-            /*   break; */
-            /* } */      return 2;
+      return 2;
     }
     else if (!strncmp(start, functions.R, 4)) {
       *out = 82;
@@ -122,9 +118,9 @@ int math_keys(char* start, func functions, char* out){
   } else if (*start == 99 && !strncmp(start, functions.c, 3)){
     *out = 99;
     return 2;
-  } else if (*start == 116 && !strncmp(start, functions.t, 2)) {
+  } else if (*start == 116 && !strncmp(start, functions.t, 3)) {
     *out = 116;
-    return 1;
+    return 2;
   } else if (*start == 108){
     if (!strncmp(start, functions.l, 2)){
       *out = 108;
@@ -134,16 +130,25 @@ int math_keys(char* start, func functions, char* out){
       *out = 76;        
       return 2;
     }
+  } else if (*start == 43){
+      *out = 80;
+      return 0; 
+  } else if (*start == 45){
+      *out = 77;
+      return 0;
   }
 }
+
 
 func init_functions(func functions){
   functions.s = "sin"; functions.S = "asin";
   functions.c = "cos"; functions.C = "acos";
-  functions.t = "tg";  functions.T = "atan";
+  functions.t = "tan";  functions.T = "atan";
   functions.l = "ln";  functions.L = "log";
   functions.R = "sqrt";
   functions.numbers = "1234567890.";
+  functions.M = "-";
+  functions.P = "+";
   return functions;
 }
 

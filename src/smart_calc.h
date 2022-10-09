@@ -14,7 +14,7 @@
 
 
 typedef struct available_func {
-  char *s, *c, *t, *S, *C, *T, *R, *l, *L;
+  char *s, *c, *t, *S, *C, *T, *R, *l, *L, *M, *P;
   char *numbers;
 } func;
 
@@ -71,6 +71,7 @@ int get_prio(char* value, int);
 int check_stack_prio(node_s* stack, int prio_stack);
 int math_keys(char*, func, char*);
 func init_functions(func functions);
+int check_unary(char* input, int iter_count);
 
 
 /* main */

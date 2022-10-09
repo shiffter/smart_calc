@@ -6,8 +6,18 @@ int calc(char* input, double* res){
   func avail_func = init_functions(avail_func);
   queue* que = create_q();
   for (int i = 0; *input; i++, input++) {
-    /* printf("input = %c\n", *input); */
+    /* printf("input = \n", *input); */
+    if (*input == 32){
+      i--;
+      continue;
+    }
     int prio = get_prio(input, prio);
+    printf("%d) %c uno ? %d\n",i ,*input, check_unary(input, i));
+    if (prio == 5 && check_unary(input, i)){
+      
+      prio = 2;
+    }
+
     if (*input == 120){
       char* x = calloc(2, sizeof(char));
       *x = *input;
@@ -44,14 +54,14 @@ int calc(char* input, double* res){
     }
   }
 
-  /* print_Q(que); */
+  print_Q(que);
 
   queue* que_out = create_q();
 
   rpn(que, que_out);
   /* printf("last %s\n", que_out->tail->data); */
 
-  print_Q(que_out);
+  /* print_Q(que_out); */
 
   printf("\nque end\n");
   calculate_value(que_out);
@@ -72,7 +82,7 @@ int calc(char* input, double* res){
 /*   free(que); */
   
 
-
+ 
 
   /* printf(":op elem %s\t\t%p\n", que->tail->data, que->tail->data); */
 
@@ -110,6 +120,10 @@ int calculate_value(queue* rpn_q){
         res_q->result = log(func->result);
       else if (*tmp_q->data == 82)
         res_q->result = sqrt(func->result);
+      else if (*tmp_q->data == 80)
+        res_q->result = func->result;
+      else if (*tmp_q->data == 77)
+        res_q->result = func->result * (-1.0);
       func->prio = 0;
       push_s(&stack, res_q);
     }
@@ -126,7 +140,7 @@ int calculate_value(queue* rpn_q){
             res->result = lowwer->result / upper->result;
         } else if (tmp_q->prio = 5){
           if (*tmp_q->data == 45)
-            res->result = upper->result - lowwer->result;
+            res->result = lowwer->result - upper->result;
           else
             res->result = upper->result + lowwer->result;
         }
@@ -134,18 +148,26 @@ int calculate_value(queue* rpn_q){
         push_s(&stack, res);
       }
     }
-    printf("res = %lf\n", stack->data->result);
+    printf("res = %lf \n ", stack->data->result);
 return 0;
 }
 
-
+int check_unary(char* input, int iter_count){
+  int out = 0, prio = 69;
+  if (iter_count == 0 && (*input == 43 || *input == 45)) out = 1;
+  prio = get_prio(++input, prio);
+  if (prio == 1 || prio == 2) out = 1;
+  return out;
+}
 
 int main(){
   
   /* char* in = "15-sin(12.34+(15*3*cos(24/12)))+13^2"; */
   
-  char *in = "(123+15)^2*76^5-cos(85^3+(25161*13+(12*468)))-sin(32)+(15*3/2)";
-
+  /* char *in = "(123+15)^2*76^5-cos(85^3+(25161*13+(12*468)))-sin(32)+(15*3/2)"; */
+  /* char* in = "123+cos(15)-sin(23)^5"; */
+  char* in = "cos(-5))-5";
+/* char* in = "2.4474 /8.0162/ 3.2142+tan( 0.6211 +sin(tan( 7.5952 +5.3702) ) - 4.7121^sin(  1.9427- 2.8496) )/cos(0.2688 ^0.5391+cos( tan(cos( cos(  5.6221 ))  ) /sin( 2.3295)  -tan( cos(tan( cos(9.2239)  ))) ) )"; */
   double res = 0.0;
   calc(in, &res);
 

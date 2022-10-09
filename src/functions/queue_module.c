@@ -47,9 +47,9 @@ node_q* pop_q(queue* Q){
 void print_Q(queue* Q){
   node_q* tmp = Q->head;
   while(tmp){
-    /* printf("node = %s\t%d\n", tmp->data, tmp->prio); */
+    printf("node = %s\t%d\n", tmp->data, tmp->prio);
     /* printf("data %s\t\t%p len = %ld\n", tmp->data, tmp->data, strlen(tmp->data)); */
-    printf("%s ", tmp->data);
+    /* printf("%s ", tmp->data); */
 
     tmp = tmp->next;
   }
