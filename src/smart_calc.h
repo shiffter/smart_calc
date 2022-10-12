@@ -14,7 +14,7 @@
 
 
 typedef struct available_func {
-  char *s, *c, *t, *S, *C, *T, *R, *l, *L, *M, *P;
+  char *s, *c, *t, *S, *C, *T, *R, *l, *L, *M, *P, *m;
   char *numbers;
 } func;
 
@@ -51,7 +51,7 @@ void peek_s(node_s* top);
 node_q* pop_s(node_s** top);
 int is_empty_s(node_s** top);
 void print_stack(node_s* top);
-
+void free_node_s(node_s* node);
 
 
 /* Queue functions */
@@ -61,6 +61,7 @@ node_q* create_node_q(char*, int);
 node_q* pop_q(queue* Q);
 void free_node_q(node_q* node);
 void print_Q(queue* Q);
+void free_Q(queue* Q);
 
 
 
@@ -72,11 +73,12 @@ int check_stack_prio(node_s* stack, int prio_stack);
 int math_keys(char*, func, char*);
 func init_functions(func functions);
 int check_unary(char* input, int iter_count);
+void find_unary(queue* que);
 
 
 /* main */
 int calc(char* input, double* res);
-int calculate_value(queue* rpn_q);
+int calculate_value(queue* rpn_q, double*);
 
 
 
