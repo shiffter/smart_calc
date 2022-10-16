@@ -1,194 +1,137 @@
 #include "../smart_calc.h"
 
-int calc(char *input, double *res) {
-  int out = 0;
-  func avail_func = init_functions(avail_func);
-  queue *que = create_q();
-  for (int i = 0; *input; i++, input++) {
-    if (*input == 32) {
-      i--;
-      continue;
-    }
-    int prio = get_prio(input, prio);
-    if (*input == 120) {
-      char *x = calloc(2, sizeof(char));
-      *x = *input;
-      push_q(que, x, prio);
-      /* free(x); */
-      continue;
-    } else if (*input > 47 && *input < 58) {
-      size_t len_num = strspn(input, avail_func.numbers);
-      char *number = calloc(len_num + 1, sizeof(char));
-      strncpy(number, input, len_num);
-      if (len_num > 1)
-        input += len_num - 1;
-      push_q(que, number, 0); // thierd param can be get from get_prio
-      /* free(number); */
-      continue;
-    } else if (prio == 2 || *input == 109) {
-      char *functions = calloc(2, sizeof(char));
-      int shift = math_keys(input, avail_func, functions);
-      if (*input == 109)
-        prio = 4;
-      input += shift;
-      push_q(que, functions, prio);
-      /* free(functions); */
-      continue;
-    } else if (prio > 2 || prio == 1) {
-      char *operator= calloc(2, sizeof(char));
-      *operator= * input;
-      push_q(que, operator, prio);
-      /* free(operator); */
-      continue;
-    }
-  }
 
-    find_unary(que);
-    queue *que_out = create_q();
-    rpn(que, que_out);
-    /* print_Q(que); */
-    free_Q(que);
-    /* print_Q(que_out); */
-    /* calculate_value(que_out, res); */
-    free_Q(que_out);
-    return 0;
-  }
-
-  int calculate_value(queue * rpn_q, double* res) {
-    node_s *stack = NULL;
-    node_q *tmp_q = NULL;
-    double result = 0.0;
-    while (tmp_q = pop_q(rpn_q)) {
-      if (tmp_q->prio == 0) {
-        push_s(&stack, tmp_q);
-        stack->data->result = atof(stack->data->data);
-        continue;
-      } else if (tmp_q->prio == 2) {
-        node_q *func = pop_s(&stack);
-        node_q *res_q = create_node_q("func calc", 0);
-        if (*tmp_q->data == 115)
-          res_q->result = sin(func->result);
-        else if (*tmp_q->data == 99)
-          res_q->result = cos(func->result);
-        else if (*tmp_q->data == 116)
-          res_q->result = tan(func->result);
-        else if (*tmp_q->data == 83)
-          res_q->result = asin(func->result);
-        else if (*tmp_q->data == 67)
-          res_q->result = acos(func->result);
-        else if (*tmp_q->data == 84)
-          res_q->result = atan(func->result);
-        else if (*tmp_q->data == 76)
-          res_q->result = log10(func->result);
-        else if (*tmp_q->data == 108)
-          res_q->result = log(func->result);
-        else if (*tmp_q->data == 82)
-          res_q->result = sqrt(func->result);
-        else if (*tmp_q->data == 80) {
-          res_q->result = func->result;
-        } else if (*tmp_q->data == 77) {
-          res_q->result = func->result * (-1.0);
-        }
-        func->prio = 0;
-        push_s(&stack, res_q);
-        free_node_q(func);
-        
-      } else if (tmp_q->prio > 2) {
-        node_q *upper = pop_s(&stack);
-        node_q *lowwer = pop_s(&stack);
-        node_q *res = create_node_q("pass", 0);
-        if (tmp_q->prio == 3)
-          res->result = pow(lowwer->result, upper->result);
-        else if (tmp_q->prio == 4) {
-          if (*tmp_q->data == 109)
-            res->result = fmod(lowwer->result, upper->result);
-          else if (*tmp_q->data == 42)
-            res->result = upper->result * lowwer->result;
-          else
-            res->result = lowwer->result / upper->result;
-        } else if (tmp_q->prio = 5) {
-          if (*tmp_q->data == 45)
-            res->result = lowwer->result - upper->result;
-          else
-            res->result = upper->result + lowwer->result;
-        }
-        res->prio = 0;
-        push_s(&stack, res);
-        free_node_q(upper);
-        free_node_q(lowwer);
-      }
-    free_node_q(tmp_q);
-    }
-      *res = stack->data->result;
-
-      free(stack->data->data);
-      free(stack->data);
-      free(stack);
-
-      /* free_node_s(stack); */
-
-    return 0;
-  }
-
-  int check_unary(char *input, int iter_count) {
-    int out = 0, prio = 69;
-    while (*input++ == 32)
-    if (iter_count == 0 && (*input == 43 || *input == 45))
-      out = 1;
-    prio = get_prio(++input, prio);
-    if (prio == 1 || prio == 2)
-      out = 1;
-    return out;
-  }
-
-  void find_unary(queue * que) {
-    node_q *prev_node = que->head;
-    node_q *actualy = prev_node->next;
-    int count = 0;
-    while (actualy) {
-      if (count == 0 && prev_node->prio == 5) {
-        prev_node->prio = 2;
-        if (*prev_node->data == 43)
-          *prev_node->data = 80;
-        else if (*prev_node->data == 45)
-          *prev_node->data = 77;
-      } else if (actualy->prio == 5) {
-        if (prev_node->prio == 2 || *prev_node->data == 40){
-          actualy->prio = 2;
-        if (*actualy->data == 43)
-          *actualy->data = 80;
-        else if (*actualy->data == 45)    
-          *actualy->data = 77;
-        }
-        /* if (actualy->next && actualy->next->prio == 2){ */
-        /* actualy->prio = 2; */
-        /* if (*actualy->data == 43) */
-        /*   *actualy->data = 80; */
-        /* else if (*actualy->data == 45) */    
-        /*   *actualy->data = 77; */
-        /* } */
+int main(){
+  char* in = "asin(x)*cos(x^2)";
+  char out[100] = {0};
+  get_short_func(in, out);
+  printf("%s", out);
+  return 0;
+}
 
 
-      }
-      node_q *tmp = actualy;
-      actualy = actualy->next;
-      prev_node = tmp;
-      count++;
-    }
-  }
-
-  int main() {
-
-    /* char* in = "15-sin(12.34+(15*3*cos(24/12)))+13^2"; */
-    char* in = "35";
-    /* char *in ="(123+15)^2*76^5-cos(85^3+(25161*13+(12*468)))-sin(32)+(15*3/2)"; */
-    /* char* in = "123+cos(15)-sin(23)^5"; */
-    /* char *in = "10/(-1)*(-2)"; */
-    /* char* in = "4 mod 3 + (1 * 2)"; */
-     /* char* in = "2.4474/8.0162/3.2142+tan(0.6211+sin(tan(7.5952 +5.3702)) - 4.7121^sin(1.9427-2.8496))/cos(0.2688^0.5391+cos(tan(cos(cos(5.6221)))/sin(2.3295)-tan(cos(tan(cos(9.2239))))))"; */
+double calc(char* input, double* res){
      
-    double res = 0.0;
-    calc(in, &res);
-    printf("%0.3lf\nlen %ld", res, strlen(in));
-    return 0;
+  return *res;
+}
+
+
+int valid_str(char* input){
+  int out = 0;
+  out = pair_paren(input);
+  return out;
+}
+
+
+int pair_paren(char* input){
+  int out = 0, paren = 0;
+  char* start_str = input;
+  while(*input){
+    if(*input == '(') paren++;
+    else if (*input == ')') paren--;
+    input++;
   }
+  if (!paren){
+    printf("Watch a pair parentheses\n");
+    out = -1;
+  }
+  return out;
+}
+
+
+int get_short_func(char* input, char* out){
+  int res = 0;
+  char ch = *input;
+  const void* find_ch = input;
+  
+
+  if (!input || !out) res = 1;
+
+  func avail_func = init_functions(avail_func);
+
+  for(; *input && find_ch; input++, out++){
+    find_ch = strchr(avail_func.all_sym, *input);
+    if (find_ch == NULL) { printf("syntax error\n"); break; }
+    if(*input >= 'a' && *input <= 'z' && *input != 'x'){ math_keys(&input, avail_func, out); }
+    else if (*input >= 0 && *input <= 9) { copy_number(&input, out); }
+    else { *out = *input; }
+  }
+  return res;
+}
+
+
+int copy_number(char** input, char* out){
+  int res = 0;
+  char* numbers = "0123456789.";
+  size_t len_num = strspn(*input, numbers);
+  /* char *number = calloc(len_num + 1, sizeof(char)); */
+  if (len_num > 0){
+    strncat(out, *input, len_num);
+    if (len_num > 1) *input += len_num - 1; 
+  }
+  /* free(number)k */
+
+
+}
+
+
+int math_keys(char** start, func functions, char *out) {
+
+  if (**start == 's') {
+    if      (!strncmp(*start, functions.s, 3)) { *out = 's'; *start += 2; }
+    else if (!strncmp(*start, functions.R, 4)) { *out = 'R'; *start += 3; }
+  } else if (**start == 'a') {
+    if (!strncmp(*start, functions.S, 4)) *out = 'S'; 
+    else if (!strncmp(*start, functions.C, 4)) *out = 'C'; 
+    else if (!strncmp(*start, functions.T, 4)) *out = 'T'; 
+    *start += 3;
+  } else if (**start == 'c' && !strncmp(*start, functions.c, 3)) { *out = 'c'; *start += 2; }
+    else if (**start == 't' && !strncmp(*start, functions.t, 3)) { *out = 't'; *start += 2; }
+    else if (**start == 'l') {
+      if (!strncmp(*start, functions.l, 2)) { *out = 'l'; *start += 1; }
+      if (!strncmp(*start, functions.L, 3)) { *out = 'L'; *start += 2; }
+  } else if (**start == 'm') {
+    if (!strncmp(*start, functions.m, 3)) { *out = 'm'; *start += 2; }
+  /* } else if (*start == 43) { *out = 80; *start += 0; } else if (*start == 45) { *out = 77; return 0;  } */
+  }
+  return 0;
+}
+
+
+
+int get_prio(char *value, int prio) {
+  if (value != NULL) {
+    if      (*value >= '0' && *value <= '9')  prio = 0;
+    else if (*value == '(' || *value == ')')  prio = 1;
+    else if (*value >= 'a' && *value <= 'z') {
+      if (*value == 'm' && *++value == 'o')   prio = 4;
+      else                                    prio = 2;
+    } else if (*value == '^')                 prio = 3;
+    else if (*value == '/' || *value == '*')    prio = 4;
+    else if (*value == '+' || *value == '-')    prio = 5;
+  } else { prio = -1; }
+  return prio;
+}
+
+
+
+
+
+func init_functions(func functions) {
+  functions.s = "sin";
+  functions.S = "asin";
+  functions.c = "cos";
+  functions.C = "acos";
+  functions.t = "tan";
+  functions.T = "atan";
+  functions.l = "ln";
+  functions.L = "log";
+  functions.R = "sqrt";
+  functions.numbers = "1234567890.";
+  functions.m = "mod";
+  functions.M = "-";
+  functions.P = "+";
+  functions.all_sym = "1234567890+-*/.^()asScCtTlLRmMPx";
+  functions.first_chars = "sactlm";
+  return functions;
+}
