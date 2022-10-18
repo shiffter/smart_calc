@@ -52,7 +52,7 @@ typedef struct stack {
 int push_s(node_s** top, char, int);
 void peek_s(node_s* top);
 char pop_s(node_s** top);
-/* int is_empty_s(node_s** top); */
+int is_empty(node_s** top);
 void print_ss(node_s* top);
 /* void free_node_s(node_s* node); */
 
@@ -70,8 +70,8 @@ void print_ss(node_s* top);
 
 
 /* Deikstra algorithm functions */
-/* int rpn(queue*, queue*); */
-/* int get_prio(char* value, int); */
+int rpn(char* input, char* out);
+int get_prio(char* value, int);
 /* int check_stack_prio(node_s* stack, int prio_stack); */
 /* int math_keys(char*, func, char*); */
 func init_functions(func functions);

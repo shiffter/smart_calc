@@ -3,9 +3,9 @@
 
 int main(){
   char* in = "asin(x)*cos(x^2)";
-  char out[100] = {0};
-  get_short_func(in, out);
-  printf("%s", out);
+  char* out = calloc(strlen(in)+1, sizeof(char));
+  rpn(in, out);
+  free(out);
   return 0;
 }
 
@@ -49,9 +49,9 @@ int get_short_func(char* input, char* out){
 
   func avail_func = init_functions(avail_func);
 
-  for(; *input && find_ch; input++, out++){
+  for(; *input && find_ch && !res; input++, out++){
     find_ch = strchr(avail_func.all_sym, *input);
-    if (find_ch == NULL) { printf("syntax error\n"); break; }
+    if (find_ch == NULL) { printf("syntax error\n"); res = 1; break; }
     if(*input >= 'a' && *input <= 'z' && *input != 'x'){ math_keys(&input, avail_func, out); }
     else if (*input >= 0 && *input <= 9) { copy_number(&input, out); }
     else { *out = *input; }
@@ -75,24 +75,24 @@ int copy_number(char** input, char* out){
 }
 
 
-int math_keys(char** start, func functions, char *out) {
+int math_keys(char** input, func functions, char *out) {
 
-  if (**start == 's') {
-    if      (!strncmp(*start, functions.s, 3)) { *out = 's'; *start += 2; }
-    else if (!strncmp(*start, functions.R, 4)) { *out = 'R'; *start += 3; }
-  } else if (**start == 'a') {
-    if (!strncmp(*start, functions.S, 4)) *out = 'S'; 
-    else if (!strncmp(*start, functions.C, 4)) *out = 'C'; 
-    else if (!strncmp(*start, functions.T, 4)) *out = 'T'; 
-    *start += 3;
-  } else if (**start == 'c' && !strncmp(*start, functions.c, 3)) { *out = 'c'; *start += 2; }
-    else if (**start == 't' && !strncmp(*start, functions.t, 3)) { *out = 't'; *start += 2; }
-    else if (**start == 'l') {
-      if (!strncmp(*start, functions.l, 2)) { *out = 'l'; *start += 1; }
-      if (!strncmp(*start, functions.L, 3)) { *out = 'L'; *start += 2; }
-  } else if (**start == 'm') {
-    if (!strncmp(*start, functions.m, 3)) { *out = 'm'; *start += 2; }
-  /* } else if (*start == 43) { *out = 80; *start += 0; } else if (*start == 45) { *out = 77; return 0;  } */
+  if (**input == 's') {
+    if      (!strncmp(*input, functions.s, 3)) { *out = 's'; *input += 2; }
+    else if (!strncmp(*input, functions.R, 4)) { *out = 'R'; *input += 3; }
+  } else if (**input == 'a') {
+    if (!strncmp(*input, functions.S, 4)) *out = 'S'; 
+    else if (!strncmp(*input, functions.C, 4)) *out = 'C'; 
+    else if (!strncmp(*input, functions.T, 4)) *out = 'T'; 
+    *input += 3;
+  } else if (**input == 'c' && !strncmp(*input, functions.c, 3)) { *out = 'c'; *input += 2; }
+    else if (**input == 't' && !strncmp(*input, functions.t, 3)) { *out = 't'; *input += 2; }
+    else if (**input == 'l') {
+      if (!strncmp(*input, functions.l, 2)) { *out = 'l'; *input += 1; }
+      if (!strncmp(*input, functions.L, 3)) { *out = 'L'; *input += 2; }
+  } else if (**input == 'm') {
+    if (!strncmp(*input, functions.m, 3)) { *out = 'm'; *input += 2; }
+  /* } else if (*input == 43) { *out = 80; *input += 0; } else if (*input == 45) { *out = 77; return 0;  } */
   }
   return 0;
 }

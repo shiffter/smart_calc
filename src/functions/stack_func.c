@@ -37,3 +37,10 @@ int push_s(node_s** top, char data, int prio) {
   } else { printf("Allocate memory error!\n"); out = 1; }
   return out;
 }
+
+
+int is_empty(node_s** top){
+  int out = 0;
+  if (*top == NULL) out = 1;
+  return out;
+}
