@@ -27,12 +27,13 @@ char pop_s(node_s** top){
 
 
 
-int push_s(node_s** top, char data, int prio) {
+int push_s(node_s** top, char data, double prio) {
   int out = 0;
   node_s* new_n = calloc(1, sizeof(node_s));
   if (new_n){
     new_n->next_node = *top;
     new_n->data = data;
+    new_n->prio = prio;
     *top = new_n;
   } else { printf("Allocate memory error!\n"); out = 1; }
   return out;

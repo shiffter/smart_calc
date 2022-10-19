@@ -6,34 +6,44 @@ int rpn(char* input, char* out){
   node_s* stack = NULL;
   char* start = out;
   for(; *input; input++){
-    printf("ss %s\n %s", start, input);
-    sleep(1);
-    in_prio = get_prio(input, in_prio); 
+    if (*input == ' ') continue;
+    /* printf("input %c\nstack\n",*input); */
+    /* print_ss(stack); */
+    /* printf("%s\n", start); */
+    in_prio = get_prio(input, in_prio);
+    /* *out++ = '|'; */
+    /* printf("input %c, %d \n", *input, in_prio); */
     if (in_prio == 0 || *input == 'x'){
       if(*input == 'x') { *out = *input; out++; }
-      else { copy_number(&input, out); }
+      else { copy_number(&input, &out); *out++ = ' ';}
     }
     else if (in_prio == 1){
       if (*input == '(')
         push_s(&stack, *input, 0);
       else {
+        /* printf("stack\n"); */
+        /* print_ss(stack); */
         char tmp = pop_s(&stack);
-        while (tmp != ')'){
-          *out = tmp;
+        while (tmp != '('){
+          /* printf("loop ing\n"); */
+          /* sleep(1); */
+          *out++ = tmp;
+          *out++ = ' ';
           tmp = pop_s(&stack);
-          out++;
+          /* out++; */
         }
       }
     } else {
-        if (is_empty(&stack)) push_s(&stack, *input, 0);
-
+        /* printf("case 3\n"); */
+        if (!is_empty(&stack) && stack->data == '(') push_s(&stack, *input, 0);
+        else if (is_empty(&stack)) push_s(&stack, *input, 0);
         else {
           st_prio = get_prio(&(stack->data), st_prio);
           if(st_prio <= in_prio ){
             while(st_prio <= in_prio && !is_empty(&stack)) {
               char tmp = pop_s(&stack);
-              *out = tmp;
-              out++;
+              *out++ = tmp;
+              *out++ = ' ';
               st_prio = get_prio(&(stack->data), st_prio);
             }
           push_s(&stack, *input, 0);
@@ -45,10 +55,9 @@ int rpn(char* input, char* out){
     }
   }
   while(!is_empty(&stack)){
-    *out = pop_s(&stack);
-    out++;
+    *out++ = pop_s(&stack);
+    *out++ = ' '; 
   }
-  printf("out = %s\n", out);
 return res; 
 }
 

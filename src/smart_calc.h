@@ -31,7 +31,7 @@ typedef struct available_func {
 
 typedef struct stack {
   char data;
-  int prio;
+  double prio;
   struct stack* next_node;
 } node_s;
 
@@ -49,7 +49,7 @@ typedef struct stack {
 
 
 /* Stack functions */
-int push_s(node_s** top, char, int);
+int push_s(node_s** top, char, double);
 void peek_s(node_s* top);
 char pop_s(node_s** top);
 int is_empty(node_s** top);
@@ -87,6 +87,6 @@ int pair_paren(char* input);
 int get_short_func(char* input, char* out);
 double calc(char* input, double* res);
 int get_prio(char *value, int prio);
-int copy_number(char** input, char* out);
+int copy_number(char** input, char** out);
 int math_keys(char** start, func functions, char *out);
 
