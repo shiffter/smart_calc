@@ -5,12 +5,17 @@ int main(){
   /* char* in = "sin (13.68*cos(23.56 ^4))+cos(mod(22))*tan(35 * (12+13))"; */
   
   /* char* in = "-12 + (-15) * 14^(-3) + cos(-23) + sqrt(168)+ (12-cos(32*4^(-3)))"; */
-  char* in = "3+5-6+21.35";
+  /* char* in = "sin(20.32)*12.36^4 +(cos(tan(35.4)))+(-sqrt(153.3)) * 2^45 + 2^3"; */
+  char *in = "cos(32.3) + (-sin(15))";
   char* out = calloc(strlen(in)+1, sizeof(char));
   char* out1 = calloc(100, sizeof(char));
   get_short_func(in, out);
+  find_unary(out);
+  
+  printf("out %s|\n", out);
   rpn(out, out1);
-  printf("out %s|\n", out1);
+  
+  printf("out1 %s|\n", out1);
   double res = 0;
   calc(out1, &res);
   free(out);
@@ -22,30 +27,75 @@ int main(){
 double calc(char* input, double* res){
   node_s* stack = NULL;
   int in_prio = 10, st_prio = 10;
-  char* numbers = "0123456789.";
+  char* numbers = "0123456789.MP";
   for (; *input; input++){
     if(*input == ' ') continue;
     in_prio = get_prio(input, in_prio);
     printf("in %c, prio = %d\n", *input, in_prio);
     if (in_prio == 0){
-      size_t len = strspn(input, numbers);
-      char* tmp_num = calloc(len, sizeof(char));
-      strncat(tmp_num, input, len);
-      /* double num = atof(tmp_num); */
-      push_s(&stack, 'Z', atof(tmp_num));
-      input += len;
-      free(tmp_num);
-    } else if (in_prio == 5){
+      
+        size_t len = strspn(input, numbers);
+        char* tmp_num = calloc(len, sizeof(char));
+        strncat(tmp_num, input, len);
+        /* double num = atof(tmp_num); */
+        push_s(&stack, 'Z', atof(tmp_num));
+        input += len;
+        free(tmp_num); }
+    else if (in_prio == 1){
+        if (*input == 'P' || *input == 'M'){
+        double tmp = stack->prio;
+        pop_s(&stack);
+        if   (*input == 'P') push_s(&stack, 'Z', tmp);
+        else push_s(&stack, 'Z', (-tmp));
+        printf("top %lf\n", stack->prio);
+     /* printf("top st %lf\n",stack->prio); */
+
+  }
+     } else if (in_prio == 6){
       double tmp_1 = stack->prio;
       pop_s(&stack);
       double tmp_2 = stack->prio;
       pop_s(&stack);
-      double res = 0;
-      if (*input == '+') res = tmp_1 + tmp_2;
-      else res = tmp_2 - tmp_1;
-      printf("res %lf\n", res);
-      push_s(&stack, 'X', res);
+      double tmp_res = 0;
+      if (*input == '+') tmp_res = tmp_1 + tmp_2;
+      else tmp_res = tmp_2 - tmp_1;
+      /* printf("res %lf\n", tmp_res); */
+      push_s(&stack, 'X', tmp_res);
+
+      /* printf("top st %lf\n",stack->prio); */
     }
+    else if(in_prio == 5 || in_prio == 4){
+      double tmp_1 = stack->prio;
+      pop_s(&stack);
+      double tmp_2 = stack->prio;
+      pop_s(&stack);
+      if (*input == 'm') push_s(&stack, 'Z', fmod(tmp_2, tmp_1));
+      else if (*input == '*') push_s(&stack, 'Z', tmp_1 * tmp_2);  
+      else if (*input == '/') push_s(&stack, 'Z', tmp_2 / tmp_1);
+      else if (*input == '^') push_s(&stack, 'Z', pow(tmp_2, tmp_1));
+
+      /* printf("top st %lf\n",stack->prio); */
+    } else if (in_prio == 3) {
+      double tmp = stack->prio;
+      pop_s(&stack);
+      /* printf("sin %lf\n", sin(tmp)); */
+      if (*input == 's') push_s(&stack, 'Z', sin(tmp));
+      else if (*input == 'S') push_s(&stack, 'Z', asin(tmp));
+      else if (*input == 'c') push_s(&stack, 'Z', cos(tmp));
+      else if (*input == 'C') push_s(&stack, 'Z', acos(tmp));
+      else if (*input == 't') push_s(&stack, 'Z', tan(tmp));
+      else if (*input == 'T') push_s(&stack, 'Z', atan(tmp));
+      else if (*input == 'l') push_s(&stack, 'Z', log(tmp));
+      else if (*input == 'L') push_s(&stack, 'Z', log10(tmp));
+
+      else if (*input == 'R') {
+        if (tmp < 0) { printf("try get root from negative number"); break; }
+        else push_s(&stack, 'Z', sqrt(tmp));
+      }
+      printf("top st %lf\n",stack->prio);
+    }
+
+  
   }
 
   printf("res = %lf\n", stack->prio);
@@ -73,6 +123,27 @@ int pair_paren(char* input){
     out = -1;
   }
   return out;
+}
+
+
+void find_unary(char* input) {
+  char* next = ++input; --input;
+  int count = 0;
+  for (; *next; input++, next++){
+    /* sleep(1); */
+    if(count == 0 && (get_prio(input, 0) == 6)){
+      if (*input == '+') *input = 'P';
+      else *input = 'M';
+    } else if(*next == '+' ||  *next == '-') {
+      if (get_prio(input, 0) == 3 || *input == '(') {
+        /* printf("cathc\n"); */
+        if (*next == '+') *next = 'P';
+        else *next = 'M';
+      }}
+    /* } else *out = *input; */
+    /* printf("%c, %d out %c\n", *input, get_prio(input, 0), *out); */
+    count++;
+  }
 }
 
 
@@ -144,14 +215,15 @@ int math_keys(char** input, func functions, char *out) {
 
 int get_prio(char *value, int prio) {
   if (value != NULL) {
-    if      (*value >= '0' && *value <= '9' || *value == 'x')  prio = 0;
-    else if (*value == '(' || *value == ')')  prio = 1;
+    if      (*value >= '0' && *value <= '9' || *value == 'x') prio = 0;
+    else if ( *value == 'M' || *value == 'P')  prio = 1;
+    else if (*value == '(' || *value == ')')  prio = 2;
     else if ((*value >= 'a' && *value <= 'z') || (*value >= 'A' && *value <= 'Z')) {
-      if (*value == 'm' && *++value == 'o')   prio = 4;
-      else                                    prio = 2;
-    } else if (*value == '^')                 prio = 3;
-    else if (*value == '/' || *value == '*')    prio = 4;
-    else if (*value == '+' || *value == '-')    prio = 5;
+      if (*value == 'm')   prio = 5;
+      else                                    prio = 3;
+    } else if (*value == '^')                 prio = 4;
+    else if (*value == '/' || *value == '*')    prio = 5;
+    else if (*value == '+' || *value == '-')    prio = 6;
   } else { prio = -1; }
   return prio;
 }

@@ -76,7 +76,8 @@ int get_prio(char* value, int);
 /* int math_keys(char*, func, char*); */
 func init_functions(func functions);
 /* int check_unary(char* input, int iter_count); */
-/* void find_unary(queue* que); */
+void find_unary(char*);
+
 
 
 /* main */

@@ -7,26 +7,31 @@ int rpn(char* input, char* out){
   char* start = out;
   for(; *input; input++){
     if (*input == ' ') continue;
-    /* printf("input %c\nstack\n",*input); */
+    /* sleep(0.5); */
     /* print_ss(stack); */
     /* printf("%s\n", start); */
     in_prio = get_prio(input, in_prio);
+    printf("input %c ptio %d \n",*input, in_prio);
     /* *out++ = '|'; */
     /* printf("input %c, %d \n", *input, in_prio); */
     if (in_prio == 0 || *input == 'x'){
       if(*input == 'x') { *out = *input; out++; }
+      /* else if(*input == 'P') push_s(&stack, 'P', 0); */
       else { copy_number(&input, &out); *out++ = ' ';}
+      
     }
-    else if (in_prio == 1){
+    else if (in_prio == 1) *out++ = 'M';
+      /* push_s(&stack, 'M', 0); */
+    else if (in_prio == 2){
       if (*input == '(')
         push_s(&stack, *input, 0);
       else {
-        /* printf("stack\n"); */
-        /* print_ss(stack); */
+        printf("stack\n");
+        print_ss(stack);
         char tmp = pop_s(&stack);
         while (tmp != '('){
           /* printf("loop ing\n"); */
-          /* sleep(1); */
+          sleep(1);
           *out++ = tmp;
           *out++ = ' ';
           tmp = pop_s(&stack);
@@ -34,6 +39,8 @@ int rpn(char* input, char* out){
         }
       }
     } else {
+        printf("stack\n");
+        print_ss(stack);
         /* printf("case 3\n"); */
         if (!is_empty(&stack) && stack->data == '(') push_s(&stack, *input, 0);
         else if (is_empty(&stack)) push_s(&stack, *input, 0);
