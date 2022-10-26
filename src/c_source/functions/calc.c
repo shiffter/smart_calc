@@ -1,44 +1,55 @@
 #include "../smart_calc.h"
 
-int main() {
-  /* char* in = "sin (13.68*cos(23.56 ^4))+cos(5 mod(22))*tan(35 * (12+13))"; */
+/* int main() { */
+/*   /1* char* in = "sin (13.68*cos(23.56 ^4))+cos(5 mod(22))*tan(35 * (12+13))"; *1/ */
 
-  /* char* in = "-12 + (-15) * 14^(-3) + cos(-23) + sqrt(168)+
-   * (12-cos(32*4^(-3)))"; */
-  /* char* in = "sin(20.32)*12.36^4 +(cos(tan(35.4)))+(-sqrt(153.3)) * 2^45 +
-   * 2^3"; */
-  char *in = "2^3^(-4+2^3)";
-  char *out = calloc(strlen(in) + 1, sizeof(char));
-  char *out1 = calloc(100, sizeof(char));
-  get_short_func(in, out);
-  find_unary(out);
+/*   /1* char* in = "-12 + (-15) * 14^(-3) + cos(-23) + sqrt(168)+ */
+/*    * (12-cos(32*4^(-3)))"; *1/ */
+/*   /1* char* in = "sin(20.32)*12.36^4 +(cos(tan(35.4)))+(-sqrt(153.3)) * 2^45 + */
+/*    * 2^3"; *1/ */
+/*   /1* char *in = "2^3^(-4+2^3)"; *1/ */
+/*   char* in = "2+3+4"; */
+/*   char *out = calloc(strlen(in) + 1, sizeof(char)); */
+/*   char *out1 = calloc(100, sizeof(char)); */
+/*   get_short_func(in, out); */
+/*   find_unary(out); */
 
-  printf("out %s|\n", out);
-  rpn(out, out1);
+/*   printf("out %s|\n", out); */
+/*   rpn(out, out1); */
 
-  printf("out1 %s|\n", out1);
-  double res = 0;
-  calc(out1, &res);
-  free(out);
-  free(out1);
-  return 0;
-}
+/*   printf("out1 %s|\n", out1); */
+/*   double res = 0; */
+/*   calc(out1, &res); */
+/*   free(out); */
+/*   free(out1); */
+/*   return 0; */
+/* } */
 
 double calc(char *input, double *res) {
   node_s *stack = NULL;
   int in_prio = 10, st_prio = 10;
-  char *numbers = "0123456789";
-  for (; *input; input++) {
+  char *numbers = "0123456789.";
+  /* printf("%s\n", input); */
+  
+  /* for (int i = 0; *input; input++, i++) printf("%c", *input); */
+
+  for (int i = 0; *input; input++, i++) {
+    /* printf("input for start %c\n", *input); */
+
+  /* printf("in %c\n", *input); */
+  /* printf("in %p\n", input); */
     if (*input == ' ')
       continue;
     in_prio = get_prio(input, in_prio);
-    printf("in %c, prio = %d\n", *input, in_prio);
+    /* printf("input %c prio %d \n",*input, in_prio); */
     if (in_prio == 0) {
       size_t len = strspn(input, numbers);
       char *tmp_num = calloc(len, sizeof(char));
+      /* printf("len number %ld\n", len); */
       strncat(tmp_num, input, len);
       push_s(&stack, 'Z', atof(tmp_num));
       input += len;
+      /* printf("input at end %c\n", *input); */
       free(tmp_num);
     } else if (in_prio == 6) {
       if (*input == 'P' || *input == 'M') {
@@ -102,6 +113,7 @@ double calc(char *input, double *res) {
     }
   }
   *res = stack->prio;
+  /* printf("res =%lf\n", *res); */
   return *res;
 }
 
@@ -115,6 +127,7 @@ int pair_paren(char *input) {
   int out = 0, paren = 0;
   char *start_str = input;
   while (*input) {
+    /* printf("%c prio %d \n", *input, get_prio(input, 0)); */
     if (*input == '(')
       paren++;
     else if (*input == ')')
@@ -184,6 +197,7 @@ int copy_number(char **input, char **out) {
     *out += len_num;
   }
   /* free(number)k */
+  return res;
 }
 
 int math_keys(char **input, func functions, char *out) {

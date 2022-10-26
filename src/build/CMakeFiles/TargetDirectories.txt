@@ -1,0 +1,4 @@
+/Users/sonjadav/smart_calc/build/CMakeFiles/smart_calc.dir
+/Users/sonjadav/smart_calc/build/CMakeFiles/edit_cache.dir
+/Users/sonjadav/smart_calc/build/CMakeFiles/rebuild_cache.dir
+/Users/sonjadav/smart_calc/build/CMakeFiles/smart_calc_autogen.dir

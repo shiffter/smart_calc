@@ -1,4 +1,6 @@
 #include "../smart_calc.h"
+
+
 void peek_s(node_s *top) {
   if (top->data)
     printf("%c\n", top->data);
