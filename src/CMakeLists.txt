@@ -27,6 +27,7 @@ set(PROJECT_SOURCES
         c_source/functions/calc.c
         c_source/functions/deikstra.c
         c_source/functions/stack_func.c
+        c_source/functions/common.c
         ${TS_FILES}
 )
 

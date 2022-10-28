@@ -8,7 +8,7 @@ int rpn(char *input, char *out) {
     if (*input == ' ')
       continue;
     in_prio = get_prio(input, in_prio);
-    printf("input %c ptio %d \n", *input, in_prio);
+    /* printf("input %c ptio %d \n", *input, in_prio); */
     if (in_prio == 0 || *input == 'x') {
       if (*input == 'x') {
         *out = *input;

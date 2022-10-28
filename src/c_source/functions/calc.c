@@ -124,7 +124,7 @@ int valid_str(char *input) {
 }
 
 int pair_paren(char *input) {
-  int out = 0, paren = 0;
+  int out = 0, paren = 1;
   char *start_str = input;
   while (*input) {
     /* printf("%c prio %d \n", *input, get_prio(input, 0)); */
@@ -134,7 +134,7 @@ int pair_paren(char *input) {
       paren--;
     input++;
   }
-  if (!paren) {
+  if (paren != 1) {
     printf("Watch a pair parentheses\n");
     out = -1;
   }
@@ -154,6 +154,36 @@ void find_unary(char *input) {
     count++;
   }
 }
+
+
+int check_expr(char* input){
+  int res = 0;
+  res = valid_str(input);
+  for(int i = 0; input[i] && !res; i++){
+    if (i == 0 && get_prio(input, 0) > 3){
+      if (*input == 'M' || *input == 'P' || *input == 'm')
+        continue;
+      else
+        res = 1;
+    }
+    else if (input[i] == '.'){
+      if (i == 0) res = 1;
+      else if (input[i-1] == '.' || input[i+1] == '.') res = 1;
+    }
+    else if ((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z')){
+      if (input[i] == 'M' || input[i] == 'P') continue;
+      if (input[i+1] != '(') res = 1;
+    } else if (get_prio(input+i, 0) > 1){
+      if ((input+i+1) != NULL){
+        if (get_prio(input+i+1, 0) > 1) res = 1; 
+      } 
+    } 
+
+   }
+  return res;
+}
+
+
 
 int get_short_func(char *input, char *out) {
   int res = 0;
@@ -188,6 +218,7 @@ int copy_number(char **input, char **out) {
   int res = 0;
   char *numbers = "0123456789.";
   size_t len_num = strspn(*input, numbers);
+  char check_number[40] = {0};
   /* char *number = calloc(len_num + 1, sizeof(char)); */
   if (len_num > 0) {
     strncat(*out, *input, len_num);

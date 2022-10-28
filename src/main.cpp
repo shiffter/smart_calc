@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 //    valid_str();
 //    QLabel* label = new QLabel(my_res);
 //    label->show();
+    QString expr;
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

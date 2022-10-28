@@ -90,4 +90,5 @@ double calc(char* input, double* res);
 int get_prio(char *value, int prio);
 int copy_number(char** input, char** out);
 int math_keys(char** start, func functions, char *out);
-
+double common_calc(char* in);
+int check_expr(char* in);

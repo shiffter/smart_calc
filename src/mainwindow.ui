@@ -725,12 +725,22 @@ QPushButton:pressed {
      <rect>
       <x>40</x>
       <y>160</y>
-      <width>431</width>
+      <width>341</width>
       <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string>out</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>60</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
     </property>
    </widget>
   </widget>

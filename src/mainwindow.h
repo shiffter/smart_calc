@@ -27,10 +27,8 @@ private:
 
 private slots:
     void add_char();
-    void on_pushButton_dot_clicked();
-    void operations();
     void on_pushButton_clear_clicked();
     void on_pushButton_calc_clicked();
-    void math_operations();
+    void on_lineEdit_returnPressed();
 };
 #endif // MAINWINDOW_H
