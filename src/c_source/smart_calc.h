@@ -21,6 +21,12 @@ typedef struct available_func {
 } func;
 
 
+typedef struct x {
+    double y_val[100], x_val[100];
+    double start, stop, step;
+}x_x;
+
+
 /* typedef struct Qnode { */
 /*   char* data; */
 /*   int prio; */
@@ -86,9 +92,9 @@ void find_unary(char*);
 int valid_str(char*);
 int pair_paren(char* input);
 int get_short_func(char* input, char* out);
-double calc(char* input, double* res);
+double calc(char* input, double* res, x_x*);
 int get_prio(char *value, int prio);
 int copy_number(char** input, char** out);
 int math_keys(char** start, func functions, char *out);
-double common_calc(char* in);
+double common_calc(char* in, x_x*);
 int check_expr(char* in);

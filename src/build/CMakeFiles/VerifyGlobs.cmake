@@ -3,191 +3,192 @@
 cmake_policy(SET CMP0009 NEW)
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.c")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.c")
 set(OLD_GLOB
-  "/Users/sonjadav/smart_calc/build/CMakeFiles/3.23.0/CompilerIdC/CMakeCCompilerId.c"
-  "/Users/sonjadav/smart_calc/c_source/functions/calc.c"
-  "/Users/sonjadav/smart_calc/c_source/functions/deikstra.c"
-  "/Users/sonjadav/smart_calc/c_source/functions/stack_func.c"
-  "/Users/sonjadav/smart_calc/c_source/tests/rpn_tests.c"
-  "/Users/sonjadav/smart_calc/c_source/tests/stack_tests.c"
-  "/Users/sonjadav/smart_calc/c_source/tests/test.c"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/functions/calc.c"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/functions/deikstra.c"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/functions/stack_func.c"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/tests/rpn_tests.c"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/tests/stack_tests.c"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/tests/test.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/3.23.0/CompilerIdC/CMakeCCompilerId.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/calc.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/common.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/deikstra.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/stack_func.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/tests/rpn_tests.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/tests/stack_tests.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/tests/test.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/functions/calc.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/functions/deikstra.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/functions/stack_func.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/tests/rpn_tests.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/tests/stack_tests.c"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/tests/test.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.c++")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.c++")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.cc")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.cc")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.ch")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.ch")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.cpp")
 set(OLD_GLOB
-  "/Users/sonjadav/smart_calc/build/CMakeFiles/3.23.0/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "/Users/sonjadav/smart_calc/build/smart_calc_autogen/EWIEGA46WW/moc_mainwindow.cpp"
-  "/Users/sonjadav/smart_calc/build/smart_calc_autogen/mocs_compilation.cpp"
-  "/Users/sonjadav/smart_calc/main.cpp"
-  "/Users/sonjadav/smart_calc/mainwindow.cpp"
-  "/Users/sonjadav/smart_calc/qcustomplot.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/3.23.0/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/mocs_compilation.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/main.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/qcustomplot.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.cxx")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.cxx")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.h")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.h")
 set(OLD_GLOB
-  "/Users/sonjadav/smart_calc/build/smart_calc_autogen/include/ui_mainwindow.h"
-  "/Users/sonjadav/smart_calc/build/smart_calc_autogen/moc_predefs.h"
-  "/Users/sonjadav/smart_calc/c_source/smart_calc.h"
-  "/Users/sonjadav/smart_calc/c_source/tests/test.h"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/smart_calc.h"
-  "/Users/sonjadav/smart_calc/c_source/v1.0not_clean/tests/test.h"
-  "/Users/sonjadav/smart_calc/mainwindow.h"
-  "/Users/sonjadav/smart_calc/qcustomplot.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/include/ui_mainwindow.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/moc_predefs.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/smart_calc.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/tests/test.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/smart_calc.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/v1.0not_clean/tests/test.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.h"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/qcustomplot.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.h++")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.h++")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.hh")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.hh")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.hpp")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.hxx")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.hxx")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.java")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.java")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.js")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.js")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.jui")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.jui")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.qml")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.qml")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.qrc")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.qrc")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.qs")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.qs")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at /usr/local/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:79 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/smart_calc/*.ui")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/*.ui")
 set(OLD_GLOB
-  "/Users/sonjadav/smart_calc/mainwindow.ui"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.ui"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/sonjadav/smart_calc/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/cmake.verify_globs")
 endif()

@@ -25,7 +25,7 @@
 /*   return 0; */
 /* } */
 
-double calc(char *input, double *res) {
+double calc(char *input, double *res, x_x* x_info) {
   node_s *stack = NULL;
   int in_prio = 10, st_prio = 10;
   char *numbers = "0123456789.";
@@ -43,6 +43,9 @@ double calc(char *input, double *res) {
     in_prio = get_prio(input, in_prio);
     /* printf("input %c prio %d \n",*input, in_prio); */
     if (in_prio == 0) {
+      if(*input == 'x'){
+          push_s(&stack, 'Z', x_info->start);
+      } else {
       size_t len = strspn(input, numbers);
       char *tmp_num = calloc(len, sizeof(char));
       /* printf("len number %ld\n", len); */
@@ -51,6 +54,7 @@ double calc(char *input, double *res) {
       input += len;
       /* printf("input at end %c\n", *input); */
       free(tmp_num);
+      }
     } else if (in_prio == 6) {
       if (*input == 'P' || *input == 'M') {
         double tmp = stack->prio;
@@ -175,7 +179,7 @@ int check_expr(char* input){
       if (input[i+1] != '(') res = 1;
     } else if (get_prio(input+i, 0) > 1){
       if ((input+i+1) != NULL){
-        if (get_prio(input+i+1, 0) > 1) res = 1; 
+        if (get_prio(input+i+1, 0) > 3) res = 1;
       } 
     } 
 

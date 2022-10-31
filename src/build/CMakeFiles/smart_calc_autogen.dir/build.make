@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sonjadav/smart_calc
+CMAKE_SOURCE_DIR = /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sonjadav/smart_calc/build
+CMAKE_BINARY_DIR = /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build
 
 # Utility rule file for smart_calc_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/smart_calc_autogen.dir/compiler_depend.make
 include CMakeFiles/smart_calc_autogen.dir/progress.make
 
 CMakeFiles/smart_calc_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target smart_calc"
-	/usr/local/bin/cmake -E cmake_autogen /Users/sonjadav/smart_calc/build/CMakeFiles/smart_calc_autogen.dir/AutogenInfo.json ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target smart_calc"
+	/usr/local/bin/cmake -E cmake_autogen /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/smart_calc_autogen.dir/AutogenInfo.json ""
 
 smart_calc_autogen: CMakeFiles/smart_calc_autogen
 smart_calc_autogen: CMakeFiles/smart_calc_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/smart_calc_autogen.dir/clean:
 .PHONY : CMakeFiles/smart_calc_autogen.dir/clean
 
 CMakeFiles/smart_calc_autogen.dir/depend:
-	cd /Users/sonjadav/smart_calc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/sonjadav/smart_calc /Users/sonjadav/smart_calc /Users/sonjadav/smart_calc/build /Users/sonjadav/smart_calc/build /Users/sonjadav/smart_calc/build/CMakeFiles/smart_calc_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/smart_calc_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/smart_calc_autogen.dir/depend
 

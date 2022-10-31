@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sonjadav/smart_calc
+CMAKE_SOURCE_DIR = /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sonjadav/smart_calc/build
+CMAKE_BINARY_DIR = /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sonjadav/smart_calc/build/CMakeFiles /Users/sonjadav/smart_calc/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sonjadav/smart_calc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -113,7 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -P /Users/sonjadav/smart_calc/build/CMakeFiles/VerifyGlobs.cmake
+	$(CMAKE_COMMAND) -P /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -166,6 +166,30 @@ c_source/functions/calc.s: c_source/functions/calc.c.s
 c_source/functions/calc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/c_source/functions/calc.c.s
 .PHONY : c_source/functions/calc.c.s
+
+c_source/functions/common.o: c_source/functions/common.c.o
+.PHONY : c_source/functions/common.o
+
+# target to build an object file
+c_source/functions/common.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/c_source/functions/common.c.o
+.PHONY : c_source/functions/common.c.o
+
+c_source/functions/common.i: c_source/functions/common.c.i
+.PHONY : c_source/functions/common.i
+
+# target to preprocess a source file
+c_source/functions/common.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/c_source/functions/common.c.i
+.PHONY : c_source/functions/common.c.i
+
+c_source/functions/common.s: c_source/functions/common.c.s
+.PHONY : c_source/functions/common.s
+
+# target to generate assembly for a file
+c_source/functions/common.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/c_source/functions/common.c.s
+.PHONY : c_source/functions/common.c.s
 
 c_source/functions/deikstra.o: c_source/functions/deikstra.c.o
 .PHONY : c_source/functions/deikstra.o
@@ -263,6 +287,30 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
+qcustomplot.o: qcustomplot.cpp.o
+.PHONY : qcustomplot.o
+
+# target to build an object file
+qcustomplot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/qcustomplot.cpp.o
+.PHONY : qcustomplot.cpp.o
+
+qcustomplot.i: qcustomplot.cpp.i
+.PHONY : qcustomplot.i
+
+# target to preprocess a source file
+qcustomplot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/qcustomplot.cpp.i
+.PHONY : qcustomplot.cpp.i
+
+qcustomplot.s: qcustomplot.cpp.s
+.PHONY : qcustomplot.s
+
+# target to generate assembly for a file
+qcustomplot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/smart_calc.dir/build.make CMakeFiles/smart_calc.dir/qcustomplot.cpp.s
+.PHONY : qcustomplot.cpp.s
+
 smart_calc_autogen/mocs_compilation.o: smart_calc_autogen/mocs_compilation.cpp.o
 .PHONY : smart_calc_autogen/mocs_compilation.o
 
@@ -300,6 +348,9 @@ help:
 	@echo "... c_source/functions/calc.o"
 	@echo "... c_source/functions/calc.i"
 	@echo "... c_source/functions/calc.s"
+	@echo "... c_source/functions/common.o"
+	@echo "... c_source/functions/common.i"
+	@echo "... c_source/functions/common.s"
 	@echo "... c_source/functions/deikstra.o"
 	@echo "... c_source/functions/deikstra.i"
 	@echo "... c_source/functions/deikstra.s"
@@ -312,6 +363,9 @@ help:
 	@echo "... mainwindow.o"
 	@echo "... mainwindow.i"
 	@echo "... mainwindow.s"
+	@echo "... qcustomplot.o"
+	@echo "... qcustomplot.i"
+	@echo "... qcustomplot.s"
 	@echo "... smart_calc_autogen/mocs_compilation.o"
 	@echo "... smart_calc_autogen/mocs_compilation.i"
 	@echo "... smart_calc_autogen/mocs_compilation.s"
@@ -326,7 +380,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P /Users/sonjadav/smart_calc/build/CMakeFiles/VerifyGlobs.cmake
+	$(CMAKE_COMMAND) -P /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

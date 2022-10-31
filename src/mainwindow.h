@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDoubleValidator>
+#include <qcustomplot.h>
+#include <limits.h>
 
 extern "C" {
 #include "c_source/smart_calc.h"
@@ -19,16 +22,26 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
-    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QString expr, x_value = "0";
+    double start = 0, stop = 0, step = 1;
+    QDoubleValidator x_valid;
+
+
 
 private slots:
     void add_char();
     void on_pushButton_clear_clicked();
     void on_pushButton_calc_clicked();
-    void on_lineEdit_returnPressed();
+    void on_pushButton_clicked();
+    void on_x_val_edit_editingFinished();
+
+    void on_pushButton_del_clicked();
+    void on_lineEdit_start_editingFinished();
+    void on_lineEdit_stop_editingFinished();
+    void on_lineEdit_step_editingFinished();
+    void on_pushButton_graph_clicked();
 };
 #endif // MAINWINDOW_H

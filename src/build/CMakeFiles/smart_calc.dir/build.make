@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sonjadav/smart_calc
+CMAKE_SOURCE_DIR = /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sonjadav/smart_calc/build
+CMAKE_BINARY_DIR = /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/smart_calc.dir/depend.make
@@ -76,6 +76,7 @@ include CMakeFiles/smart_calc.dir/flags.make
 ../smart_calc_en_150.ts: smart_calc_autogen/moc_predefs.h
 ../smart_calc_en_150.ts: smart_calc_autogen/mocs_compilation.cpp
 ../smart_calc_en_150.ts: ../c_source/functions/calc.c
+../smart_calc_en_150.ts: ../c_source/functions/common.c
 ../smart_calc_en_150.ts: ../c_source/functions/deikstra.c
 ../smart_calc_en_150.ts: ../c_source/functions/stack_func.c
 ../smart_calc_en_150.ts: ../c_source/smart_calc.h
@@ -97,117 +98,149 @@ include CMakeFiles/smart_calc.dir/flags.make
 ../smart_calc_en_150.ts: ../mainwindow.ui
 ../smart_calc_en_150.ts: ../qcustomplot.cpp
 ../smart_calc_en_150.ts: ../qcustomplot.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../smart_calc_en_150.ts"
-	/usr/local/bin/lupdate @/Users/sonjadav/smart_calc/build/CMakeFiles/smart_calc_en_150.ts_lst_file -ts /Users/sonjadav/smart_calc/smart_calc_en_150.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../smart_calc_en_150.ts"
+	/usr/local/bin/lupdate @/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/smart_calc_en_150.ts_lst_file -ts /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/smart_calc_en_150.ts
 
 CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o: CMakeFiles/smart_calc.dir/flags.make
 CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o: smart_calc_autogen/mocs_compilation.cpp
 CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o -MF CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o -c /Users/sonjadav/smart_calc/build/smart_calc_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o -MF CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/mocs_compilation.cpp
 
 CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/smart_calc/build/smart_calc_autogen/mocs_compilation.cpp > CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/mocs_compilation.cpp > CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/smart_calc/build/smart_calc_autogen/mocs_compilation.cpp -o CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/mocs_compilation.cpp -o CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.s
+
+CMakeFiles/smart_calc.dir/qcustomplot.cpp.o: CMakeFiles/smart_calc.dir/flags.make
+CMakeFiles/smart_calc.dir/qcustomplot.cpp.o: ../qcustomplot.cpp
+CMakeFiles/smart_calc.dir/qcustomplot.cpp.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/smart_calc.dir/qcustomplot.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/qcustomplot.cpp.o -MF CMakeFiles/smart_calc.dir/qcustomplot.cpp.o.d -o CMakeFiles/smart_calc.dir/qcustomplot.cpp.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/qcustomplot.cpp
+
+CMakeFiles/smart_calc.dir/qcustomplot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/smart_calc.dir/qcustomplot.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/qcustomplot.cpp > CMakeFiles/smart_calc.dir/qcustomplot.cpp.i
+
+CMakeFiles/smart_calc.dir/qcustomplot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/smart_calc.dir/qcustomplot.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/qcustomplot.cpp -o CMakeFiles/smart_calc.dir/qcustomplot.cpp.s
 
 CMakeFiles/smart_calc.dir/main.cpp.o: CMakeFiles/smart_calc.dir/flags.make
 CMakeFiles/smart_calc.dir/main.cpp.o: ../main.cpp
 CMakeFiles/smart_calc.dir/main.cpp.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/smart_calc.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/main.cpp.o -MF CMakeFiles/smart_calc.dir/main.cpp.o.d -o CMakeFiles/smart_calc.dir/main.cpp.o -c /Users/sonjadav/smart_calc/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/smart_calc.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/main.cpp.o -MF CMakeFiles/smart_calc.dir/main.cpp.o.d -o CMakeFiles/smart_calc.dir/main.cpp.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/main.cpp
 
 CMakeFiles/smart_calc.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/smart_calc.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/smart_calc/main.cpp > CMakeFiles/smart_calc.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/main.cpp > CMakeFiles/smart_calc.dir/main.cpp.i
 
 CMakeFiles/smart_calc.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/smart_calc.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/smart_calc/main.cpp -o CMakeFiles/smart_calc.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/main.cpp -o CMakeFiles/smart_calc.dir/main.cpp.s
 
 CMakeFiles/smart_calc.dir/mainwindow.cpp.o: CMakeFiles/smart_calc.dir/flags.make
 CMakeFiles/smart_calc.dir/mainwindow.cpp.o: ../mainwindow.cpp
 CMakeFiles/smart_calc.dir/mainwindow.cpp.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/smart_calc.dir/mainwindow.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/mainwindow.cpp.o -MF CMakeFiles/smart_calc.dir/mainwindow.cpp.o.d -o CMakeFiles/smart_calc.dir/mainwindow.cpp.o -c /Users/sonjadav/smart_calc/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/smart_calc.dir/mainwindow.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/mainwindow.cpp.o -MF CMakeFiles/smart_calc.dir/mainwindow.cpp.o.d -o CMakeFiles/smart_calc.dir/mainwindow.cpp.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.cpp
 
 CMakeFiles/smart_calc.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/smart_calc.dir/mainwindow.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/smart_calc/mainwindow.cpp > CMakeFiles/smart_calc.dir/mainwindow.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.cpp > CMakeFiles/smart_calc.dir/mainwindow.cpp.i
 
 CMakeFiles/smart_calc.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/smart_calc.dir/mainwindow.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/smart_calc/mainwindow.cpp -o CMakeFiles/smart_calc.dir/mainwindow.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.cpp -o CMakeFiles/smart_calc.dir/mainwindow.cpp.s
 
 CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o: CMakeFiles/smart_calc.dir/flags.make
 CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o: ../c_source/functions/calc.c
 CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o -c /Users/sonjadav/smart_calc/c_source/functions/calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/calc.c
 
 CMakeFiles/smart_calc.dir/c_source/functions/calc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/smart_calc.dir/c_source/functions/calc.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/smart_calc/c_source/functions/calc.c > CMakeFiles/smart_calc.dir/c_source/functions/calc.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/calc.c > CMakeFiles/smart_calc.dir/c_source/functions/calc.c.i
 
 CMakeFiles/smart_calc.dir/c_source/functions/calc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/smart_calc.dir/c_source/functions/calc.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/smart_calc/c_source/functions/calc.c -o CMakeFiles/smart_calc.dir/c_source/functions/calc.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/calc.c -o CMakeFiles/smart_calc.dir/c_source/functions/calc.c.s
 
 CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o: CMakeFiles/smart_calc.dir/flags.make
 CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o: ../c_source/functions/deikstra.c
 CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o -c /Users/sonjadav/smart_calc/c_source/functions/deikstra.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/deikstra.c
 
 CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/smart_calc/c_source/functions/deikstra.c > CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/deikstra.c > CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.i
 
 CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/smart_calc/c_source/functions/deikstra.c -o CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/deikstra.c -o CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.s
 
 CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o: CMakeFiles/smart_calc.dir/flags.make
 CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o: ../c_source/functions/stack_func.c
 CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o -c /Users/sonjadav/smart_calc/c_source/functions/stack_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/stack_func.c
 
 CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/smart_calc/c_source/functions/stack_func.c > CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/stack_func.c > CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.i
 
 CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/smart_calc/c_source/functions/stack_func.c -o CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/stack_func.c -o CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.s
+
+CMakeFiles/smart_calc.dir/c_source/functions/common.c.o: CMakeFiles/smart_calc.dir/flags.make
+CMakeFiles/smart_calc.dir/c_source/functions/common.c.o: ../c_source/functions/common.c
+CMakeFiles/smart_calc.dir/c_source/functions/common.c.o: CMakeFiles/smart_calc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/smart_calc.dir/c_source/functions/common.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/smart_calc.dir/c_source/functions/common.c.o -MF CMakeFiles/smart_calc.dir/c_source/functions/common.c.o.d -o CMakeFiles/smart_calc.dir/c_source/functions/common.c.o -c /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/common.c
+
+CMakeFiles/smart_calc.dir/c_source/functions/common.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/smart_calc.dir/c_source/functions/common.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/common.c > CMakeFiles/smart_calc.dir/c_source/functions/common.c.i
+
+CMakeFiles/smart_calc.dir/c_source/functions/common.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/smart_calc.dir/c_source/functions/common.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/c_source/functions/common.c -o CMakeFiles/smart_calc.dir/c_source/functions/common.c.s
 
 # Object files for target smart_calc
 smart_calc_OBJECTS = \
 "CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o" \
+"CMakeFiles/smart_calc.dir/qcustomplot.cpp.o" \
 "CMakeFiles/smart_calc.dir/main.cpp.o" \
 "CMakeFiles/smart_calc.dir/mainwindow.cpp.o" \
 "CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o" \
 "CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o" \
-"CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o"
+"CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o" \
+"CMakeFiles/smart_calc.dir/c_source/functions/common.c.o"
 
 # External object files for target smart_calc
 smart_calc_EXTERNAL_OBJECTS =
 
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/smart_calc_autogen/mocs_compilation.cpp.o
+smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/qcustomplot.cpp.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/main.cpp.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/mainwindow.cpp.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/functions/calc.c.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/functions/deikstra.c.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o
+smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/functions/common.c.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/build.make
 smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
 smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtCore.framework/Versions/A/QtCore
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sonjadav/smart_calc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable smart_calc.app/Contents/MacOS/smart_calc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable smart_calc.app/Contents/MacOS/smart_calc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/smart_calc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -219,6 +252,6 @@ CMakeFiles/smart_calc.dir/clean:
 .PHONY : CMakeFiles/smart_calc.dir/clean
 
 CMakeFiles/smart_calc.dir/depend: ../smart_calc_en_150.ts
-	cd /Users/sonjadav/smart_calc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/sonjadav/smart_calc /Users/sonjadav/smart_calc /Users/sonjadav/smart_calc/build /Users/sonjadav/smart_calc/build /Users/sonjadav/smart_calc/build/CMakeFiles/smart_calc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/smart_calc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/smart_calc.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/sonjadav/smart_calc
+# Install script for directory: /Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/sonjadav/smart_calc/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
