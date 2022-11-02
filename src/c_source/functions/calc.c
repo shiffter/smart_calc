@@ -25,15 +25,15 @@
 /*   return 0; */
 /* } */
 
-double calc(char *input, double *res, x_x* x_info) {
+int calc(char *input, double *res, x_x* x_info) {
   node_s *stack = NULL;
-  int in_prio = 10, st_prio = 10;
+  int in_prio = 10, st_prio = 10, flag = 0;
   char *numbers = "0123456789.";
   /* printf("%s\n", input); */
   
   /* for (int i = 0; *input; input++, i++) printf("%c", *input); */
 
-  for (int i = 0; *input; input++, i++) {
+  for (int i = 0; *input && !flag; input++, i++) {
     /* printf("input for start %c\n", *input); */
 
   /* printf("in %c\n", *input); */
@@ -44,6 +44,7 @@ double calc(char *input, double *res, x_x* x_info) {
     /* printf("input %c prio %d \n",*input, in_prio); */
     if (in_prio == 0) {
       if(*input == 'x'){
+        /* printf("push stack x %lf\n", x_info->start); */
           push_s(&stack, 'Z', x_info->start);
       } else {
       size_t len = strspn(input, numbers);
@@ -85,7 +86,11 @@ double calc(char *input, double *res, x_x* x_info) {
       else if (*input == '*')
         push_s(&stack, 'Z', tmp_1 * tmp_2);
       else if (*input == '/')
-        push_s(&stack, 'Z', tmp_2 / tmp_1);
+      { if (tmp_1 == 0) {
+           push_s(&stack, 'Z', 0.0);
+            flag = -1 ;            }
+        else push_s(&stack, 'Z', tmp_2 / tmp_1);
+      }
       else if (*input == '^')
         push_s(&stack, 'Z', pow(tmp_2, tmp_1));
     } else if (in_prio == 3) {
@@ -117,8 +122,8 @@ double calc(char *input, double *res, x_x* x_info) {
     }
   }
   *res = stack->prio;
-  /* printf("res =%lf\n", *res); */
-  return *res;
+  printf("res =%lf\n, flag %d\n", *res, flag);
+  return flag;
 }
 
 int valid_str(char *input) {

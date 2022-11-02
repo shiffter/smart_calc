@@ -769,11 +769,11 @@ QPushButton:pressed {
      <string>&lt;-</string>
     </property>
    </widget>
-   <widget class="QCustomPlot" name="widget" native="true">
+   <widget class="QCustomPlot" name="graph" native="true">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>550</y>
+      <x>30</x>
+      <y>500</y>
       <width>511</width>
       <height>201</height>
      </rect>
@@ -782,8 +782,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_start">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>280</y>
+      <x>420</x>
+      <y>200</y>
       <width>71</width>
       <height>51</height>
      </rect>
@@ -792,8 +792,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_stop">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>280</y>
+      <x>490</x>
+      <y>200</y>
       <width>71</width>
       <height>51</height>
      </rect>
@@ -802,8 +802,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_step">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>340</y>
+      <x>560</x>
+      <y>200</y>
       <width>71</width>
       <height>51</height>
      </rect>
@@ -812,14 +812,27 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_graph">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>420</x>
       <y>400</y>
-      <width>131</width>
-      <height>81</height>
+      <width>101</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>graph</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_clear_plot">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>440</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>clear</string>
     </property>
    </widget>
   </widget>

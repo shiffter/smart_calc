@@ -21,10 +21,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_7,SIGNAL(clicked()),this,SLOT(add_char()));
     connect(ui->pushButton_8,SIGNAL(clicked()),this,SLOT(add_char()));
     connect(ui->pushButton_9,SIGNAL(clicked()),this,SLOT(add_char()));
-    /* connect(ui->pushButton_unary,SIGNAL(clicked()),this,SLOT(add_char())); */
     connect(ui->pushButton_plus,SIGNAL(clicked()),this,SLOT(add_char()));
     connect(ui->pushButton_diff,SIGNAL(clicked()),this,SLOT(add_char()));
     connect(ui->pushButton_div,SIGNAL(clicked()),this,SLOT(add_char()));
+    connect(ui->pushButton_mult,SIGNAL(clicked()),this,SLOT(add_char()));
     connect(ui->pushButton_calc,SIGNAL(clicked()),this,SLOT(calc()));
     connect(ui->pushButton_cos,SIGNAL(clicked()),this,SLOT(add_char()));
     connect(ui->pushButton_acos,SIGNAL(clicked()),this,SLOT(add_char()));
@@ -44,8 +44,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     x_valid.setNotation(QDoubleValidator::StandardNotation);
             ui->x_val_edit->setValidator(&x_valid);
+    ui->graph->yAxis->setRange(-20, 20);
+    ui->graph->xAxis->setRange(-20, 20);
+  
+        /* X.push_back(1.3); */
+        /* Y.push_back(2.2); */
+        /* X.push_back(2.4); */
+        /* Y.push_back(3.3); */
 
-    
 }
 
 MainWindow::~MainWindow()
@@ -75,22 +81,28 @@ void MainWindow::on_pushButton_clear_clicked()
 
 
 void MainWindow::on_pushButton_calc_clicked()
-{
+{   
+    double res = 0.0;
+    int flag = 0;
     QPushButton *but = (QPushButton*)sender();
     x_x x_info[1];
     if (expr.isEmpty())
       ui->result->setText("0");
     else {
       if (expr.contains("x"))
-        expr.replace("x", x_value);
+      expr.replace("x", x_value);
       QByteArray ba_input = expr.toLocal8Bit();
       char* c_input = ba_input.data();
       double res = 0;
-      res = common_calc(c_input, x_info);
-      QString result = QString::number(res);
-      ui->result->setText(result);
-      expr.clear();
-      expr.append(result);
+      flag = common_calc(c_input, x_info, &res);
+      if (!flag) {
+        QString result = QString::number(res);
+        ui->result->setText(result);
+        expr.clear();
+        expr.append(result);
+      } else {
+        ui->result->setText("err");
+      }
     }
 }
 
@@ -113,38 +125,63 @@ void MainWindow::on_pushButton_del_clicked()
 
 void MainWindow::on_lineEdit_start_editingFinished()
 {
-    start = ui->lineEdit_start->text().toDouble();
+    x_info->start = ui->lineEdit_start->text().toDouble();
 }
 
 
 void MainWindow::on_lineEdit_stop_editingFinished()
 {
-    stop = ui->lineEdit_stop->text().toDouble();
+    x_info->stop = ui->lineEdit_stop->text().toDouble();
 }
 
 
 void MainWindow::on_lineEdit_step_editingFinished()
 {
-    step = ui->lineEdit_step->text().toDouble();
+    x_info->step = ui->lineEdit_step->text().toDouble();
 }
 
 
 void MainWindow::on_pushButton_graph_clicked()
 {
+    /* int flag = 0; */
     QByteArray ba_rpn = expr.toLocal8Bit();
     char out_rpn[200] = {0};
+
+    char out_rpn1[200] = {0};
     char* c_rpn = ba_rpn.data();
-    rpn(c_rpn, out_rpn);
-    x_x x_inform[1];
-    printf("start %lf, stop %lf, step %lf\n", start, stop, step);
-    int j = 0;
-    for (double i = start; i < stop; i+=step, j++){
-//        printf("start %lf\n", i);
-        x_inform->start = i;
-        double res = calc(out_rpn, &res, x_inform);
-        x_inform->x_val[j] = i;
-        x_inform->y_val[j] = res;
-        printf("cords %lf %lf, res %lf \n", x_inform->x_val[j], x_inform->y_val[j], res);
+    double tmp = x_info->start;
+    get_short_func(c_rpn, out_rpn);
+    find_unary(out_rpn);
+    rpn(out_rpn, out_rpn1);
+    printf("start %lf, stop %lf, step %lf\n", x_info->start, x_info->stop, x_info->step);
+    int j = 0,  flag = 0;
+
+    for (double i = x_info->start; !flag && i <= x_info->stop; i+=x_info->step, j++){
+        x_info->start = i;
+        double res = 0; 
+        flag = calc(out_rpn1, &res, x_info);
+        X.push_back(i);
+        Y.push_back(res);
+        /* printf("cords %lf %lf\n", i, res); */
         }
+    if (!flag){
+      x_info->start = tmp;
+      ui->graph->clearGraphs();
+      ui->graph->addGraph();
+      ui->graph->graph(0)->addData(X, Y);
+      ui->graph->replot();
+      X.clear(); Y.clear();
+    } else {
+      ui->result->setText("err");
+    }
 }
 
+
+
+void MainWindow::on_pushButton_plot_clear_clicked()
+{
+    ui->graph->clearGraphs();
+    ui->graph->replot();
+    X.clear();
+    Y.clear();
+}

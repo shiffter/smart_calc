@@ -57,6 +57,7 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/sonjadav/Desktop/C7_Sm
 set(OLD_GLOB
   "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles/3.23.0/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/EWIEGA46WW/moc_qcustomplot.cpp"
   "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/smart_calc_autogen/mocs_compilation.cpp"
   "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/main.cpp"
   "/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/mainwindow.cpp"

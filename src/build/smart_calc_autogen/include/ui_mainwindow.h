@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -58,12 +59,18 @@ public:
     QLineEdit *x_val_edit;
     QPushButton *pushButton_x;
     QPushButton *pushButton_del;
+    QCustomPlot *graph;
+    QLineEdit *lineEdit_start;
+    QLineEdit *lineEdit_stop;
+    QLineEdit *lineEdit_step;
+    QPushButton *pushButton_graph;
+    QPushButton *pushButton_clear_plot;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(551, 550);
+        MainWindow->resize(739, 795);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         result = new QLabel(centralwidget);
@@ -406,10 +413,28 @@ public:
         x_val_edit->setGeometry(QRect(30, 180, 141, 41));
         pushButton_x = new QPushButton(centralwidget);
         pushButton_x->setObjectName(QString::fromUtf8("pushButton_x"));
-        pushButton_x->setGeometry(QRect(180, 240, 51, 51));
+        pushButton_x->setGeometry(QRect(180, 240, 51, 61));
         pushButton_del = new QPushButton(centralwidget);
         pushButton_del->setObjectName(QString::fromUtf8("pushButton_del"));
         pushButton_del->setGeometry(QRect(330, 190, 51, 61));
+        graph = new QCustomPlot(centralwidget);
+        graph->setObjectName(QString::fromUtf8("graph"));
+        graph->setGeometry(QRect(30, 500, 511, 201));
+        lineEdit_start = new QLineEdit(centralwidget);
+        lineEdit_start->setObjectName(QString::fromUtf8("lineEdit_start"));
+        lineEdit_start->setGeometry(QRect(420, 200, 71, 51));
+        lineEdit_stop = new QLineEdit(centralwidget);
+        lineEdit_stop->setObjectName(QString::fromUtf8("lineEdit_stop"));
+        lineEdit_stop->setGeometry(QRect(490, 200, 71, 51));
+        lineEdit_step = new QLineEdit(centralwidget);
+        lineEdit_step->setObjectName(QString::fromUtf8("lineEdit_step"));
+        lineEdit_step->setGeometry(QRect(560, 200, 71, 51));
+        pushButton_graph = new QPushButton(centralwidget);
+        pushButton_graph->setObjectName(QString::fromUtf8("pushButton_graph"));
+        pushButton_graph->setGeometry(QRect(420, 400, 101, 51));
+        pushButton_clear_plot = new QPushButton(centralwidget);
+        pushButton_clear_plot->setObjectName(QString::fromUtf8("pushButton_clear_plot"));
+        pushButton_clear_plot->setGeometry(QRect(420, 440, 101, 51));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -454,6 +479,8 @@ public:
         x_val_edit->setText(QString());
         pushButton_x->setText(QCoreApplication::translate("MainWindow", "x", nullptr));
         pushButton_del->setText(QCoreApplication::translate("MainWindow", "<-", nullptr));
+        pushButton_graph->setText(QCoreApplication::translate("MainWindow", "graph", nullptr));
+        pushButton_clear_plot->setText(QCoreApplication::translate("MainWindow", "clear", nullptr));
     } // retranslateUi
 
 };

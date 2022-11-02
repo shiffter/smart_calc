@@ -1,9 +1,9 @@
 #include "../smart_calc.h"
 
 
-double common_calc(char* in, x_x* x_info){
+int common_calc(char* in, x_x* x_info, double* res){
 
-  double res = 0;
+  int flag = 0;
   if (in){
     char* normalize_str = calloc(strlen(in)+1, sizeof(char));
     char* rpn_s = calloc(strlen(normalize_str)+1, sizeof(char));
@@ -13,13 +13,14 @@ double common_calc(char* in, x_x* x_info){
     if (!check_expr(normalize_str)) {
       rpn(normalize_str, rpn_s);
 
-      calc(rpn_s, &res, x_info);
-    } else printf("syntax_errO");
+      printf("FLAG %d\n", flag); 
+      flag = calc(rpn_s, res, x_info);
     }
+  }
   free(normalize_str);
   free(rpn_s);
   }
-  return res;
+  return flag;
 }
 
 

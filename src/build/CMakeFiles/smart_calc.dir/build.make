@@ -72,6 +72,7 @@ include CMakeFiles/smart_calc.dir/flags.make
 ../smart_calc_en_150.ts: CMakeFiles/3.23.0/CompilerIdC/CMakeCCompilerId.c
 ../smart_calc_en_150.ts: CMakeFiles/3.23.0/CompilerIdCXX/CMakeCXXCompilerId.cpp
 ../smart_calc_en_150.ts: smart_calc_autogen/EWIEGA46WW/moc_mainwindow.cpp
+../smart_calc_en_150.ts: smart_calc_autogen/EWIEGA46WW/moc_qcustomplot.cpp
 ../smart_calc_en_150.ts: smart_calc_autogen/include/ui_mainwindow.h
 ../smart_calc_en_150.ts: smart_calc_autogen/moc_predefs.h
 ../smart_calc_en_150.ts: smart_calc_autogen/mocs_compilation.cpp
@@ -236,9 +237,11 @@ smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/fun
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/functions/stack_func.c.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/c_source/functions/common.c.o
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/build.make
+smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtPrintSupport.framework/Versions/A/QtPrintSupport
 smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
 smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 smart_calc.app/Contents/MacOS/smart_calc: /usr/local/lib/QtCore.framework/Versions/A/QtCore
+smart_calc.app/Contents/MacOS/smart_calc: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/lib/libcups.tbd
 smart_calc.app/Contents/MacOS/smart_calc: CMakeFiles/smart_calc.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sonjadav/Desktop/C7_SmartCalc_v1.0-0/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable smart_calc.app/Contents/MacOS/smart_calc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/smart_calc.dir/link.txt --verbose=$(VERBOSE)
